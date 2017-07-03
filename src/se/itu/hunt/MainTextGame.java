@@ -1,11 +1,25 @@
 package se.itu.hunt;
 
 /**
- *  Hunt - A simple silly game
- *  Ported to Java by Rikard,
- *  Original author of the C version: hajo
+ * <p>
+ *  Hunt - A simple silly game<br>
+ *  Ported to Java by Rikard,<br>
+ *  Original author of the C version: hajo<br>
  *  C programming language version here:
  *  http://www.cse.chalmers.se/edu/year/2009/course/LEU480/lect/ch5/sillyhunt.c
+ * </p>
+ * <p>
+ * To run:
+ * </p>
+ * <pre>
+ * $ ./run.sh --text
+ * </pre>
+ * <p>
+ * If you want to run it "manually":
+ * </p>
+ * <pre>
+ * $ java -cp bin se.itu.hunt.MainTextGame
+ * </pre>
  */
 public class MainTextGame {
 
