@@ -14,6 +14,9 @@ then
     if [[ "$1" == '--gui' ]]
     then
         java -cp bin se.itu.hunt.MainGUI
+    elif [[ "$1" == '--gui2' ]]
+    then
+        java -cp bin se.itu.hunt.MainGUI2
     elif [[ "$1" == '--text' ]]
     then
         java -cp bin se.itu.hunt.MainTextGame
