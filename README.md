@@ -8,9 +8,19 @@ Build:
 $ ./build.sh
 ```
 
-Run:
+Run text ui version:
 ```Bash
-$ ./run.sh
+$ ./run.sh --text
+```
+
+Run GUI version 1:
+```Bash
+$ ./run.sh --gui
+```
+
+Run GUI version 2:
+```Bash
+$ ./run.sh --gui2
 ```
 
 Generate JavaDoc:
