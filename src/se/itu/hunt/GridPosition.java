@@ -1,10 +1,8 @@
 package se.itu.hunt;
 
 /**
- * <p>Represents an immutable {@link Position} to be used in a {@link javax.swing.JTable}.</p>
- * <p>Note that a {@link javax.swing.JTable} has (0,0) in the upper left corner.</p>
- * <p>Since Swing uses a method <code>getValueAt(int row, int col)</code>,
- * we'll swap the x and y values in the call to super().</p>
+ * <p>Represents an immutable {@link Position} to be used in a matrix (two dimensional array) together with a GridLayout.</p>
+ * <p>Note that a GridLayout has (0,0) in the upper left corner, representing row 0, column zero.</p>
  */
 public class GridPosition extends Position {
 
@@ -22,12 +20,6 @@ public class GridPosition extends Position {
     this.col = col;
   }
 
-  /*
-  @Override
-  public int x() { return col; }
-  @Override
-  public int y() { return row; }
-  */
   /**
    * <p>Returns a new {@link GridPosition} with the coordinates
    * to the north of this {@link GridPosition}.</p>
