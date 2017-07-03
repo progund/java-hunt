@@ -8,7 +8,7 @@ import java.awt.*;
 import se.itu.hunt.Dimension;
 
 /**
- * An implementation of a GameUI for GUI-based interface.
+ * An implementation of a GameUI for GUI-based interface, using {@link GridLayout} and {@link JButton}s for the game board..
  */
 
 public class GUIGame2 implements GameUI {
@@ -39,9 +39,9 @@ public class GUIGame2 implements GameUI {
   private JPanel boardPanel;
   
   /**
-   * Constructs a new GUI using the supplied Avatar and Board.
-   * @param avatar The Avatar for this GUI
-   * @param board The Board for this GUI
+   * Constructs a new GUIGame2 using the supplied Avatar and Board.
+   * @param avatar The Avatar for this GUIGame2
+   * @param board The Board for this GUIGame2
    */
   public GUIGame2(Avatar avatar, Board board) {
     this.player = avatar;
@@ -72,13 +72,9 @@ public class GUIGame2 implements GameUI {
     buttons.add(south);
     buttons.add(blank);    
     top.add(buttons);
-    
     dimension = board.dimension();
     buttonMatrix = new JButton[dimension.height()][dimension.width()];
-
     initBoard();
-    //table.setFont(new Font("Serif", Font.BOLD, 40));
-    
     frame = new JFrame("Hunt");
   }
 
@@ -118,14 +114,17 @@ public class GUIGame2 implements GameUI {
     addListeners();
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     // Cheat:
+    /*
     System.out.println(board);
     System.out.println("Treasure is at row: " + board.treasurePosition().y() +
                        " column: " + board.treasurePosition().x());
+    */
   }
 
   /**
-   * Displays this GUI
+   * Displays this GUIGame2
    */
+  @Override
   public void displayAndRun() {
     frame.setVisible(true);
   }
@@ -137,9 +136,9 @@ public class GUIGame2 implements GameUI {
                                 setButtonText(player.currentPosition().y(),
                                               player.currentPosition().x(),
                                               "");
-                                System.out.println(player);
+                                //System.out.println(player);
                                 player.move(Direction.NORTH);
-                                System.out.println(player);
+                                //System.out.println(player);
                                 updateButtons();
                                 checkWin();
                               } catch (IllegalMoveException ime) {
@@ -186,11 +185,12 @@ public class GUIGame2 implements GameUI {
   }
 
   private void setButtonText(int row, int col, String text) {
-    System.out.println("attempting to set [" + row + "]["+col+"] to "+text); 
+    //System.out.println("attempting to set [" + row + "]["+col+"] to "+text); 
     buttonMatrix[row][col].setText(text);
   }
+
   private void updateButtons() {
-    System.out.println("Player: " + player);
+    //System.out.println("Player: " + player);
     setButtonText(player.currentPosition().y(),
                   player.currentPosition().x(),
                   "" + avatarSymbol);
@@ -204,29 +204,35 @@ public class GUIGame2 implements GameUI {
   private void checkWin() {
     numMoves++;
     if (player.foundIt()) {      
-      int answer = JOptionPane.showConfirmDialog(frame, "Congratulations, You have won!\nNumber of moves: " + numMoves +
-                        "\n Do you want to play again?",
-                        "Epic win",
-                        JOptionPane.YES_NO_OPTION);
+      int answer = JOptionPane
+        .showConfirmDialog
+        (frame,
+         "Congratulations, You have won!\nNumber of moves: " + numMoves +
+         "\n Do you want to play again?",
+         "Epic win",
+         JOptionPane.YES_NO_OPTION);
 
       if (answer == JOptionPane.YES_OPTION) {
         setButtonText(player.currentPosition().y(),
                       player.currentPosition().x(),
                       "");
+        // Reset board and Avatar
         board = new Board(board.dimension());
         player = new Avatar(board, new TablePosition(board.height()/2, board.width()/2));
-        System.out.println(player);
+        //System.out.println(player);
         updateButtons();
-        //table.repaint();
         initBoard();
         frame.add(boardPanel,BorderLayout.CENTER);
         boardPanel.revalidate();
         boardPanel.repaint();
         frame.repaint();
         numMoves = 0;
+        //Cheat:
+        /*
         System.out.println(board);
         System.out.println("Treasure is at row: " + board.treasurePosition().y() +
                            " column: " + board.treasurePosition().x());
+        */
       } else {
         System.exit(0);
       }
