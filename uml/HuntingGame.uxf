@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8"?><diagram program="umlet" version="13.3">
+  <zoom_level>12</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>576</x>
+      <y>420</y>
+      <w>636</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>se.itu.hunt : Avatar
+--
+-pos : Position
+-board : Board
+--
++Avatar(board : Board, pos : Position)
++currentPosition() : Position
++foundIt() : boolean
++move(direction : Direction) : void {Exceptions=IllegalMoveException}
++toString() : String &lt;&lt;override&gt;&gt;
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>912</x>
+      <y>636</y>
+      <w>384</w>
+      <h>228</h>
+    </coordinates>
+    <panel_attributes>se.itu.hunt : Board
+--
+-dimension : Dimension
+-treasurePos : Position
+--
++Board(dimension Dimension)
++width() : int
++height() : int
++dimension() : Dimension
++containsPosition(pos : Position) : boolean
++treasurePosition() : Position
++toString() : String &lt;&lt;override&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1428</x>
+      <y>696</y>
+      <w>372</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>se.itu.hunt : Dimension
+--
+-width : int
+-height : int
+--
++Dimension(width : int, height : int)
++width() : int
++height : int
++toString() : String &lt;&lt;override&gt;&gt;
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>612</x>
+      <y>660</y>
+      <w>276</w>
+      <h>324</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;immutable&gt;&gt;
+se.itu.hunt : Posttion
+--
+#x : int &lt;&lt;final&gt;&gt;
+#y : int &lt;&lt;final&gt;&gt;
+--
++Position(x : int, y : int)
++x() : int
++y() : int
++north() : Position
++south():. Position
++east() : Position
++west() : Position
++equals(o : Object) : boolean
++hashCode() : int
++toString() : String</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>372</x>
+      <y>72</y>
+      <w>216</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+se.itu.hunt : GameUI
+--
+/displayAndRun() : void/
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>108</x>
+      <y>204</y>
+      <w>360</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>se.itu.hunt : TextGame
+--
+-board : Board
+-avatar : Avatar
+--
++TextGame(avatar Avatar, board Board)
++displayAndRun() : void &lt;&lt;override&gt;&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>504</x>
+      <y>204</y>
+      <w>360</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>se.itu.hunt : GUIGame
+--
+-board : Board
+-avatar : Avatar
+--
++GUIGame(avatar Avatar, board Board)
++displayAndRun() : void &lt;&lt;override&gt;&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>24</x>
+      <y>1212</y>
+      <w>36</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>24</x>
+      <y>1212</y>
+      <w>36</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>612</x>
+      <y>1020</y>
+      <w>300</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>se.itu.hunt : TablePosition
+--
+bepa
+--
++TablePosition(row : int, col : int)
++north() : Position &lt;&lt;override&gt;&gt;
++south() : Position &lt;&lt;override&gt;&gt;
++east() : Position &lt;&lt;override&gt;&gt;
++west() : Position &lt;&lt;override&gt;&gt;
++toString() : String &lt;&lt;override&gt;&gt;</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>720</x>
+      <y>972</y>
+      <w>36</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>348</x>
+      <y>660</y>
+      <w>252</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;enum&gt;&gt;
+se.itu.hunt : Direction
+--
+NORTH
+SOUTH
+EAST
+WEST</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>84</x>
+      <y>528</y>
+      <w>348</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>se.itu.hunt : IllegalMoveException
+--
++IllegalMoveException(msg : String)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>84</x>
+      <y>420</y>
+      <w>348</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>java.lang : Exception
+--
++IllegalMoveException(msg : String)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>240</x>
+      <y>468</y>
+      <w>36</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1284</x>
+      <y>696</y>
+      <w>168</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>1320</x>
+      <y>684</y>
+      <w>120</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>Has         1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1200</x>
+      <y>516</y>
+      <w>96</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0;60.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>1212</x>
+      <y>492</y>
+      <w>204</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>Walks around on</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>1272</x>
+      <y>600</y>
+      <w>204</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>804</x>
+      <y>588</y>
+      <w>36</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>768</x>
+      <y>600</y>
+      <w>72</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>Has</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>792</x>
+      <y>636</y>
+      <w>36</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>600</x>
+      <y>600</y>
+      <w>108</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>Moves in</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>576</x>
+      <y>588</y>
+      <w>36</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>876</x>
+      <y>852</y>
+      <w>96</w>
+      <h>144</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>60.0;10.0;60.0;100.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>960</x>
+      <y>864</y>
+      <w>156</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>Has treasure in</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>552</y>
+      <w>180</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>504</x>
+      <y>528</y>
+      <w>108</w>
+      <h>36</h>
+    </coordinates>
+    <panel_attributes>Throws</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>36</x>
+      <y>36</y>
+      <w>876</w>
+      <h>324</h>
+    </coordinates>
+    <panel_attributes>Game and interface
+--
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>36</x>
+      <y>384</y>
+      <w>1812</w>
+      <h>876</h>
+    </coordinates>
+    <panel_attributes>Domain objects
+--
+bg=orange</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>492</x>
+      <y>144</y>
+      <w>216</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;160.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>276</x>
+      <y>144</y>
+      <w>204</w>
+      <h>84</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>150.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+</diagram>
